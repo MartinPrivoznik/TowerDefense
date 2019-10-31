@@ -1,6 +1,6 @@
 # Defense of Runeterra
 <p>
-  <img src="LegendsOfRuneterra"/>
+  <img src="/LegendsOfRuneterra" >
 </p>
 
 Tower defense zasažený do světa Runeterra
