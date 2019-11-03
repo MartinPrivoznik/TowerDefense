@@ -1,7 +1,6 @@
 # Defense of Runeterra
-<p>
-  <img src="/LegendsOfRuneterra" >
-</p>
+
+<img src="LegendsOfRuneterra.png" >
 
 Tower defense zasažený do světa Runeterra
 ## Cíle
