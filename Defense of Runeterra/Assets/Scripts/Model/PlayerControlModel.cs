@@ -68,6 +68,7 @@ public class PlayerControlModel : MonoBehaviour
     private void fire(Vector2 direction, float rotation)
     {
         GameObject bullet = Instantiate(Bullet) as GameObject;
+        bullet.transform.parent = GameObject.Find("Balls").transform;
         bullet.transform.position = _turret_position;
         bullet.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation); //Setting rotation
         bullet.GetComponent<Rigidbody2D>().velocity = direction * BulletSpeed;

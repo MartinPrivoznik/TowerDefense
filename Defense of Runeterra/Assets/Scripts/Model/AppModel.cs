@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class AppModel : MonoBehaviour
 {
+
+    public float Actual_Level = 1;
+
     // Start is called before the first frame update
     void Start()
     {
