@@ -254,7 +254,7 @@ Camera:
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
-  m_AllowMSAA: 1
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -290,6 +290,7 @@ MonoBehaviour:
   Bullet: {fileID: 7110926234715347066, guid: ef038b8d53d952648b19170362a575db, type: 3}
   BulletSpeed: 10
   ShootCooldown: 2
+  BulletDamage: 1
 --- !u!1 &802807426
 GameObject:
   m_ObjectHideFlags: 0
