@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Nocturne : ExposableMonoBehaviour, IHero
+public class Nocturne : ExposableMonobehaviour, IHero
 {
     [ExposeProperty]
     public float AD { get; set; }
