@@ -1,3 +1,6 @@
 ﻿using UnityEngine;
 
-public class ExposableMonobehaviour : MonoBehaviour { }
+public class ExposableMonobehaviour : MonoBehaviour 
+{
+
+}

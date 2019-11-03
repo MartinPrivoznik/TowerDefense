@@ -6,6 +6,7 @@ public class PlayerControlModel : MonoBehaviour
 {
     public GameObject Crosshair;
     public GameObject Bullet;
+
     public float BulletSpeed = 10.0f;
     public float ShootCooldown = 2;
     public float BulletDamage = 1;

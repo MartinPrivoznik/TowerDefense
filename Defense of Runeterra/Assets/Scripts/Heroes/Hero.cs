@@ -1,15 +1,10 @@
-﻿using Assets.Scripts.Heroes.Interface;
+﻿using Assets.Scripts.Heroes.Abstract;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Nocturne : ExposableMonobehaviour, IHero
+public class Hero : AbstractHero
 {
-    [ExposeProperty]
-    public float AD { get; set; }
-    [ExposeProperty]
-    public float HP { get; set; }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +14,6 @@ public class Nocturne : ExposableMonobehaviour, IHero
     // Update is called once per frame
     void Update()
     {
-        
+        base.UpdateDefault();
     }
 }
