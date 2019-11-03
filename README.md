@@ -1,4 +1,8 @@
 # Defense of Runeterra
+<p>
+  <img src="/LegendsOfRuneterra" >
+</p>
+
 Tower defense zasažený do světa Runeterra
 ## Cíle
 1. Hráč ovládá kurzorem věž
