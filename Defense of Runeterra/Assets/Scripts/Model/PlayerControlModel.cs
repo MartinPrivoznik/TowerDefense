@@ -6,8 +6,9 @@ public class PlayerControlModel : MonoBehaviour
 {
     public GameObject Crosshair;
     public GameObject Bullet;
-    public float BulletSpeed = 60.0f;
+    public float BulletSpeed = 10.0f;
     public float ShootCooldown = 2;
+    public float BulletDamage = 1;
 
 
     private Vector3 _target;
@@ -45,6 +46,7 @@ public class PlayerControlModel : MonoBehaviour
 
         //calculating difference between target and begining point
         Vector3 difference = _target - new Vector3(_turret_position.x, _turret_position.y, transform.position.z);
+        float rotation = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg; //setting rotation
 
         if (Input.GetMouseButtonDown(0) && Time.time > _shooting_cd)
         {
@@ -52,7 +54,7 @@ public class PlayerControlModel : MonoBehaviour
             Vector2 direction = difference / distance;
             direction.Normalize(); //Setting magnitude to 1
 
-            fire(direction);
+            fire(direction, rotation);
 
             //Reseting cooldown
             _shooting_cd = Time.time + ShootCooldown;
@@ -63,10 +65,11 @@ public class PlayerControlModel : MonoBehaviour
     /// Creating new bullet, setting its default position and moving it by its speed
     /// </summary>
     /// <param name="direction"></param>
-    private void fire(Vector2 direction)
+    private void fire(Vector2 direction, float rotation)
     {
         GameObject bullet = Instantiate(Bullet) as GameObject;
         bullet.transform.position = _turret_position;
+        bullet.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation); //Setting rotation
         bullet.GetComponent<Rigidbody2D>().velocity = direction * BulletSpeed;
 
         //preventing lags by destroying after time
