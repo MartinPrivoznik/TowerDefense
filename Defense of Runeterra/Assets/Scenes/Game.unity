@@ -306,6 +306,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Heroes:
   - {fileID: 2482772240090268249, guid: 6d9a8a45f3b9ae74d8e593ef21f6cf2d, type: 3}
+  - {fileID: 7512310056872811040, guid: adff376d9df0c5f49809a2da60aa70fb, type: 3}
+  SpawningPeriod: 5
 --- !u!1 &802807426
 GameObject:
   m_ObjectHideFlags: 0
