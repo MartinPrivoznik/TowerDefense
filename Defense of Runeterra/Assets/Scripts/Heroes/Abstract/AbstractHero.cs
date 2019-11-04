@@ -60,6 +60,14 @@ namespace Assets.Scripts.Heroes.Abstract
                 }
             }
 
+            if(_rigidbody.velocity == Vector2.zero)
+            {
+                Attacking = true;
+            }
+            else
+            {
+                Attacking = false;
+            }
         }
 
         

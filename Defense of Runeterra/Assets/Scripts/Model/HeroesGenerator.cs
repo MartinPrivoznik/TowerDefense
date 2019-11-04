@@ -8,6 +8,7 @@ public class HeroesGenerator : MonoBehaviour
 {
 
     public List<GameObject> Heroes;
+    public float SpawningPeriod = 5.0f;
 
     private GameObject _heroesEmpty;
     private System.Random index;
@@ -27,7 +28,7 @@ public class HeroesGenerator : MonoBehaviour
 
         index = new System.Random();
 
-        InvokeRepeating(nameof(generateNewRandomHero), 2.0f, 1.0f);
+        InvokeRepeating(nameof(generateNewRandomHero), 2.0f, SpawningPeriod);
     }
 
     // Update is called once per frame
