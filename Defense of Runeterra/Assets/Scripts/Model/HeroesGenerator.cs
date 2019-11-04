@@ -10,6 +10,7 @@ public class HeroesGenerator : MonoBehaviour
     public List<GameObject> Heroes;
 
     private GameObject _heroesEmpty;
+    private System.Random index;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,10 @@ public class HeroesGenerator : MonoBehaviour
         }
 
         _heroesEmpty = GameObject.Find("Heroes");
-        generateNewRandomHero();
+
+        index = new System.Random();
+
+        InvokeRepeating(nameof(generateNewRandomHero), 2.0f, 1.0f);
     }
 
     // Update is called once per frame
@@ -36,11 +40,9 @@ public class HeroesGenerator : MonoBehaviour
     {
         try
         {
-            System.Random index = new System.Random();
-            System.Random y_Position = new System.Random();
-            GameObject hero = Instantiate(Heroes[index.Next(Heroes.Count - 1)]) as GameObject;    //Instantiating a new random enemy
+            GameObject hero = Instantiate(Heroes[index.Next(0, Heroes.Count)]) as GameObject;    //Instantiating a new random enemy
             hero.transform.parent = _heroesEmpty.transform;
-            hero.transform.position = new Vector2(6.5f, float.Parse(y_Position.Next(-15, 12).ToString()) / 10);
+            hero.transform.position = new Vector2(6.5f, UnityEngine.Random.Range(-1.5f, 1.2f));
 
             heroInit(hero);
 
@@ -55,10 +57,10 @@ public class HeroesGenerator : MonoBehaviour
     {
         try
         {
-            System.Random y_Position = new System.Random();
+
             GameObject hero = Instantiate(_hero) as GameObject;    //Instantiating a new random enemy
             hero.transform.parent = _heroesEmpty.transform;
-            hero.transform.position = new Vector2(6.5f, float.Parse(y_Position.Next(-15, 12).ToString()) / 10);
+            hero.transform.position = new Vector2(6.5f, UnityEngine.Random.Range(-1.5f, 1.2f));
 
             heroInit(hero);
         }
@@ -79,6 +81,9 @@ public class HeroesGenerator : MonoBehaviour
         {
             case "Nocturne":
                 hero.AddComponent<Hero>().StartDefault(10, 2, 2, 2, false);
+                break;
+            case "Ashe":
+                hero.AddComponent<Hero>().StartDefault(10, 2, 2, 1, true);
                 break;
         }
     }
