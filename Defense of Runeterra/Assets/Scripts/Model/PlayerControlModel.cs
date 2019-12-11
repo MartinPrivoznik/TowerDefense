@@ -10,6 +10,7 @@ public class PlayerControlModel : MonoBehaviour
     public float BulletSpeed = 10.0f;
     public float ShootCooldown = 2;
     public float BulletDamage = 1;
+    public float TurretHP = 50;
 
     private Vector3 _target;
     private float _shooting_cd;
@@ -69,6 +70,7 @@ public class PlayerControlModel : MonoBehaviour
     {
         GameObject bullet = Instantiate(Bullet) as GameObject;
         bullet.transform.parent = GameObject.Find("Balls").transform;
+        bullet.tag = "bullet";
         bullet.transform.position = _turret_position;
         bullet.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation); //Setting rotation
         bullet.GetComponent<Rigidbody2D>().velocity = direction * BulletSpeed;
