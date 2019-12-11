@@ -6,9 +6,13 @@ using CodeMonkey.Utils;
 public class GameHandler : MonoBehaviour {
 
     [SerializeField] private HealthBar healthBar;
+    private Camera _Hp;
 
-	private void Start () {
-        float health = 1f;
+	void Start () {
+        float MaxHP = _Hp.GetComponent<PlayerControlModel>().TurretMaxHP;
+        
+        /*
+        private float health = 1f;
         FunctionPeriodic.Create(() => {
             if (health > .01f) {
                 health -= .01f;
@@ -27,5 +31,11 @@ public class GameHandler : MonoBehaviour {
                 healthBar.SetColor(Color.red);
             }
         }, .05f);
-	}
+        */
+    }
+
+    void Update()
+    {
+        
+    }
 }
