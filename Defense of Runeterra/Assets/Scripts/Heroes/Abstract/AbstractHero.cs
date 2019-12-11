@@ -90,7 +90,7 @@ namespace Assets.Scripts.Heroes.Abstract
                 {
                     Destroy(gameObject);
                 }
-            }
+            } 
         }
 
         void Attacc()
