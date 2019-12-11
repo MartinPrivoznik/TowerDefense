@@ -6,36 +6,45 @@ using CodeMonkey.Utils;
 public class GameHandler : MonoBehaviour {
 
     [SerializeField] private HealthBar healthBar;
-    private Camera _Hp;
+    private Camera _HP;
+    
+    private float MaxHP;
+    private float ActualHP;
+    float onePercent;
+    float health;
+    float HealthNow;
+    float dmg;
 
-	void Start () {
-        float MaxHP = _Hp.GetComponent<PlayerControlModel>().TurretMaxHP;
+    void Start()
+    {
+        health = 1f;
+        _HP = Camera.main;
+        MaxHP = _HP.GetComponent<PlayerControlModel>().TurretMaxHP;
+       
+        healthBar.SetSize(health);
+        healthBar.SetColor(Color.red);
         
-        /*
-        private float health = 1f;
-        FunctionPeriodic.Create(() => {
-            if (health > .01f) {
-                health -= .01f;
-                healthBar.SetSize(health);
-
-                if (health < .3f) {
-                    // Under 30% health
-                    if ((int)(health * 100f) % 3 == 0) {
-                        healthBar.SetColor(Color.white);
-                    } else {
-                        healthBar.SetColor(Color.red);
-                    }
-                }
-            } else {
-                health = 1f;
-                healthBar.SetColor(Color.red);
-            }
-        }, .05f);
-        */
+        
+        
     }
-
-    void Update()
+    
+ 
+ 
+    void Update()   
     {
         
+        ActualHP = _HP.GetComponent<PlayerControlModel>().TurretActualHP;
+        if (ActualHP >= 0)
+        {
+            onePercent = MaxHP / 100;
+            dmg = ActualHP / onePercent;
+            HealthNow = dmg / 100;
+            
+         
+            healthBar.SetSize(HealthNow);
+        }
+        
+        
+      
     }
 }
