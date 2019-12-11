@@ -12,7 +12,6 @@ public class HeroesGenerator : MonoBehaviour
 
     private GameObject _heroesEmpty;
     private System.Random index;
-    private float _spawningPeriod;
 
     // Start is called before the first frame update
     void Start()
@@ -29,24 +28,13 @@ public class HeroesGenerator : MonoBehaviour
 
         index = new System.Random();
 
-        _spawningPeriod = SpawningPeriod;
+        InvokeRepeating(nameof(generateNewRandomHero), 2.0f, SpawningPeriod);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_spawningPeriod != SpawningPeriod)
-        {
-            CancelInvoke(nameof(generateNewRandomHero));
-            _spawningPeriod = SpawningPeriod;
-            if(_spawningPeriod != -1)
-                InvokeRepeating(nameof(generateNewRandomHero), 1.5f, _spawningPeriod);
-        }
 
-        if(!IsInvoking(nameof(generateNewRandomHero)) && _spawningPeriod != -1)
-        {
-             InvokeRepeating(nameof(generateNewRandomHero), 1.5f, _spawningPeriod);
-        }
     }
 
     private void generateNewRandomHero()

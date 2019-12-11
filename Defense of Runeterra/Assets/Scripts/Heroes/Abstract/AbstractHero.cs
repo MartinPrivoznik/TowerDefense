@@ -96,12 +96,8 @@ namespace Assets.Scripts.Heroes.Abstract
 
         void Attacc()
         {
-
-            var script = _turret.GetComponent<PlayerControlModel>();
-            if (script.TurretActualHP > 0)
-            {
-                script.TurretActualHP -= AD;
-            }
+            _turret.GetComponent<PlayerControlModel>().TurretActualHP -= AD;
+            Debug.Log(_turret.GetComponent<PlayerControlModel>().TurretActualHP.ToString());
         }
 
     }
