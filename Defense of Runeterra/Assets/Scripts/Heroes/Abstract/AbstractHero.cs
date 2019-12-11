@@ -49,6 +49,7 @@ namespace Assets.Scripts.Heroes.Abstract
 
         protected void UpdateDefault()
         {
+
             if (Ranged)
             {
                 if (_transform.position.x > -2.0f && _transform.position.x < -1.0f)
@@ -67,17 +68,21 @@ namespace Assets.Scripts.Heroes.Abstract
             if(_rigidbody.velocity == Vector2.zero)
             {
                 Attacking = true;
+                if(!IsInvoking(nameof(Attacc)))
+                    InvokeRepeating(nameof(Attacc), 1.5f, AS);
             }
             else
             {
                 Attacking = false;
+                CancelInvoke(nameof(Attacc));
             }
+
+
         }
         void OnTriggerEnter2D(Collider2D collider)
         {
             if (collider.gameObject.CompareTag("Bullet"))
             {
-
                 HP -= _turret.GetComponent<PlayerControlModel>().BulletDamage;
                 //scoreText.text = _score.ToString();
                 Destroy(collider.gameObject);
@@ -88,6 +93,11 @@ namespace Assets.Scripts.Heroes.Abstract
             } 
         }
 
+        void Attacc()
+        {
+            _turret.GetComponent<PlayerControlModel>().TurretHP -= AD;
+            Debug.Log(_turret.GetComponent<PlayerControlModel>().TurretHP.ToString());
+        }
 
     }
 }
