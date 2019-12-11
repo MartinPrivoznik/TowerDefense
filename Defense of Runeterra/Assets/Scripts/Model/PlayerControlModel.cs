@@ -10,7 +10,8 @@ public class PlayerControlModel : MonoBehaviour
     public float BulletSpeed = 10.0f;
     public float ShootCooldown = 2;
     public float BulletDamage = 1;
-    public float TurretHP = 50;
+    public float TurretMaxHP = 50;
+    public float TurretActualHP = 50;
     public bool CanAttacc = true;
 
     private Vector3 _target;

@@ -25,6 +25,7 @@ namespace Assets.Scripts.Heroes.Abstract
         private Transform _transform;
         private Rigidbody2D _rigidbody;
         private Camera _turret;
+       
         
 
         public void StartDefault(float _ad, 
@@ -95,8 +96,8 @@ namespace Assets.Scripts.Heroes.Abstract
 
         void Attacc()
         {
-            _turret.GetComponent<PlayerControlModel>().TurretHP -= AD;
-            Debug.Log(_turret.GetComponent<PlayerControlModel>().TurretHP.ToString());
+            _turret.GetComponent<PlayerControlModel>().TurretActualHP -= AD;
+            Debug.Log(_turret.GetComponent<PlayerControlModel>().TurretActualHP.ToString());
         }
 
     }
