@@ -24,6 +24,7 @@ namespace Assets.Scripts.Heroes.Abstract
 
         private Transform _transform;
         private Rigidbody2D _rigidbody;
+        private float _turretdmg;
 
         public void StartDefault(float _ad, 
                                     float _hp, 
@@ -41,6 +42,7 @@ namespace Assets.Scripts.Heroes.Abstract
             _transform = GetComponent<Transform>();
             _rigidbody = GetComponent<Rigidbody2D>();
             _rigidbody.velocity = Vector2.left * MS; //Make it moving left
+            _turretdmg = GetComponent<PlayerControlModel>().BulletDamage;
         }
 
         protected void UpdateDefault()
@@ -69,7 +71,21 @@ namespace Assets.Scripts.Heroes.Abstract
                 Attacking = false;
             }
         }
+        void OnTriggerEnter2D(Collider2D collider)
+        {
+            if (collider.gameObject.CompareTag("bullet"))
+            {
 
-        
+                HP = HP - _turretdmg;
+                //scoreText.text = _score.ToString();
+                collider.gameObject.SetActive(false);
+                if (HP == 0)
+                {
+                    Destroy(gameObject);
+                }
+            }
+        }
+
+
     }
 }

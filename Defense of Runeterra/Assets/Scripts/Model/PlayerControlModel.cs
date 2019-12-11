@@ -11,7 +11,6 @@ public class PlayerControlModel : MonoBehaviour
     public float ShootCooldown = 2;
     public float BulletDamage = 1;
 
-
     private Vector3 _target;
     private float _shooting_cd;
     private Vector2 _turret_position;
