@@ -24,7 +24,8 @@ namespace Assets.Scripts.Heroes.Abstract
 
         private Transform _transform;
         private Rigidbody2D _rigidbody;
-        private float _turretdmg;
+        private Camera _turret;
+        
 
         public void StartDefault(float _ad, 
                                     float _hp, 
@@ -42,7 +43,8 @@ namespace Assets.Scripts.Heroes.Abstract
             _transform = GetComponent<Transform>();
             _rigidbody = GetComponent<Rigidbody2D>();
             _rigidbody.velocity = Vector2.left * MS; //Make it moving left
-            _turretdmg = GetComponent<PlayerControlModel>().BulletDamage;
+            _turret = Camera.main;
+
         }
 
         protected void UpdateDefault()
@@ -73,13 +75,13 @@ namespace Assets.Scripts.Heroes.Abstract
         }
         void OnTriggerEnter2D(Collider2D collider)
         {
-            if (collider.gameObject.CompareTag("bullet"))
+            if (collider.gameObject.CompareTag("Bullet"))
             {
 
-                HP = HP - _turretdmg;
+                HP -= _turret.GetComponent<PlayerControlModel>().BulletDamage;
                 //scoreText.text = _score.ToString();
-                collider.gameObject.SetActive(false);
-                if (HP == 0)
+                Destroy(collider.gameObject);
+                if (HP <= 0)
                 {
                     Destroy(gameObject);
                 }
