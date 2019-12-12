@@ -50,7 +50,7 @@ public class PlayerControlModel : MonoBehaviour
         Vector3 difference = _target - new Vector3(_turret_position.x, _turret_position.y, transform.position.z);
         float rotation = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg; //setting rotation
 
-        if (Input.GetMouseButtonDown(0) && Time.time > _shooting_cd)
+        if (Input.GetMouseButtonDown(0) && Time.time > _shooting_cd && ShootCooldown != -1)
         {
             float distance = difference.magnitude;
             Vector2 direction = difference / distance;

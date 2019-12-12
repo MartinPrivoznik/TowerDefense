@@ -39,6 +39,11 @@ public class GameHandler : MonoBehaviour {
             health = (ActualHP / (MaxHP / 100)) / 100;
             healthBar.SetSize(health);
         }
+        else
+        {
+            if (_HP.GetComponent<PlayerControlModel>().ShootCooldown != -1)
+                _HP.GetComponent<PlayerControlModel>().ShootCooldown = -1;
+        }
         
         
       
