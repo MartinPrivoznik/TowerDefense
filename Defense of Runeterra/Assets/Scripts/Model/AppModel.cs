@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AppModel : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class AppModel : MonoBehaviour
     public float Actual_Level = 1;
     public GameObject Defeat;
     public GameObject Explosion;
+    public Text HPText;
 
     private Camera _turret;
     private SpriteRenderer _renderer;
@@ -36,6 +38,10 @@ public class AppModel : MonoBehaviour
 
             Explosion.SetActive(true);
             Defeat.SetActive(true);
+        }
+        else
+        {
+            HPText.text = $"{_turret.GetComponent<PlayerControlModel>().TurretActualHP}/{_turret.GetComponent<PlayerControlModel>().TurretMaxHP}";
         }
     }
 }
