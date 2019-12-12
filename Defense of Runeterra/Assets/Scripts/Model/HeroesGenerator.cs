@@ -96,7 +96,22 @@ public class HeroesGenerator : MonoBehaviour
                 hero.AddComponent<Hero>().StartDefault(10, 2, 2, 2, false);
                 break;
             case "Ashe":
-                hero.AddComponent<Hero>().StartDefault(10, 2, 2, 1, true);
+                hero.AddComponent<Hero>().StartDefault(10, 2, 3, 1, true);
+                break;
+            case "Karthus":
+                hero.AddComponent<Hero>().StartDefault(8, 5, 2, 1, true);
+                break;
+            case "Taric":
+                hero.AddComponent<Hero>().StartDefault(-1, 10, 3, 0.5f, false);
+                break;
+            case "Teemo":
+                hero.AddComponent<Hero>().StartDefault(6, 6, 6, 0.7f, true); //Easter-EGG
+                break;
+            case "Cho":
+                hero.AddComponent<Hero>().StartDefault(4, 10, 2, 1, false);
+                break;
+            case "Alistar":
+                hero.AddComponent<Hero>().StartDefault(4, 10, 1.4f, 2, false);
                 break;
         }
     }

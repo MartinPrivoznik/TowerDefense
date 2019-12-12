@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using CodeMonkey.Utils;
 
 public class GameHandler : MonoBehaviour {
 
@@ -38,6 +37,11 @@ public class GameHandler : MonoBehaviour {
         {
             health = (ActualHP / (MaxHP / 100)) / 100;
             healthBar.SetSize(health);
+        }
+        else
+        {
+            if (_HP.GetComponent<PlayerControlModel>().ShootCooldown != -1)
+                _HP.GetComponent<PlayerControlModel>().ShootCooldown = -1;
         }
         
         

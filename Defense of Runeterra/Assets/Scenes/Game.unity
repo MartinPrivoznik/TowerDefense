@@ -463,10 +463,10 @@ MonoBehaviour:
   Crosshair: {fileID: 321771427}
   Bullet: {fileID: 4611971320433147601, guid: 40b6171109dd6304d91f7d5ed7b71964, type: 3}
   BulletSpeed: 10
-  ShootCooldown: 2
-  BulletDamage: 1
-  TurretMaxHP: 10
-  TurretActualHP: 10
+  ShootCooldown: 1
+  BulletDamage: 1.5
+  TurretMaxHP: 50
+  TurretActualHP: 50
 --- !u!114 &645924324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,6 +482,11 @@ MonoBehaviour:
   Heroes:
   - {fileID: 2482772240090268249, guid: 6d9a8a45f3b9ae74d8e593ef21f6cf2d, type: 3}
   - {fileID: 7512310056872811040, guid: adff376d9df0c5f49809a2da60aa70fb, type: 3}
+  - {fileID: 8026769629385770476, guid: d2d09d03919692447a32e374076a9770, type: 3}
+  - {fileID: 1534800349739051936, guid: ba7e652b582a7a64987052f14055adfb, type: 3}
+  - {fileID: 750371325587107724, guid: c738875b59e029b4c8360b8a68b6ce3f, type: 3}
+  - {fileID: 3563610621739354012, guid: e026128635887204aa6156d0fe1e6a81, type: 3}
+  - {fileID: 7230247579489077936, guid: 1da44a1a91cc7df4fbe8333f2696c57e, type: 3}
   SpawningPeriod: 5
 --- !u!114 &645924325
 MonoBehaviour:
