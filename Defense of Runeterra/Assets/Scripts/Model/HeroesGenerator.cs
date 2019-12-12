@@ -98,6 +98,9 @@ public class HeroesGenerator : MonoBehaviour
             case "Ashe":
                 hero.AddComponent<Hero>().StartDefault(10, 2, 2, 1, true);
                 break;
+            case "Karthus":
+                hero.AddComponent<Hero>().StartDefault(8, 5, 2, 1, true);
+                break;
         }
     }
 }
