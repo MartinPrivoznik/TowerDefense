@@ -14,11 +14,13 @@ public class AppModel : MonoBehaviour
     private Camera _turret;
     private SpriteRenderer _renderer;
     private Color _alphaColor;
+    private float _turretHP;
 
     // Start is called before the first frame update
     void Start()
     {
         _turret = Camera.main;
+        _turretHP = _turret.GetComponent<PlayerControlModel>().TurretMaxHP;
 
         _renderer = Defeat.GetComponent<SpriteRenderer>();
 
@@ -39,9 +41,10 @@ public class AppModel : MonoBehaviour
             Explosion.SetActive(true);
             Defeat.SetActive(true);
         }
-        else
+        if (_turretHP != _turret.GetComponent<PlayerControlModel>().TurretMaxHP)
         {
-            HPText.text = $"{_turret.GetComponent<PlayerControlModel>().TurretActualHP}/{_turret.GetComponent<PlayerControlModel>().TurretMaxHP}";
+            var hp = _turret.GetComponent<PlayerControlModel>().TurretMaxHP;
+            HPText.text = $"{hp}/{_turret.GetComponent<PlayerControlModel>().TurretMaxHP}";
         }
     }
 }

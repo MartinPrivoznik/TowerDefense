@@ -60,7 +60,7 @@ namespace Assets.Scripts.Heroes.Abstract
             }
             else
             {
-                if (_transform.position.x > -4.2f && _transform.position.x < -4.0f)
+                if (_transform.position.x > -4.0f && _transform.position.x < -3.5f)
                 {
                     _rigidbody.velocity = Vector2.zero;
                 }

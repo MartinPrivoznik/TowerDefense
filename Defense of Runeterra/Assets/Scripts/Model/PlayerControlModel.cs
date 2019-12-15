@@ -74,7 +74,7 @@ public class PlayerControlModel : MonoBehaviour
         bullet.transform.position = _turret_position;
         bullet.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotation); //Setting rotation
         bullet.GetComponent<Rigidbody2D>().velocity = direction * BulletSpeed;
-
+        bullet.GetComponent<SpriteRenderer>().sortingOrder = 20;
         //preventing lags by destroying after time
         Destroy(bullet, _destroy_time);
     }

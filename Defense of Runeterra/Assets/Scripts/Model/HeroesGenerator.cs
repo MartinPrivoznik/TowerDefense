@@ -21,7 +21,7 @@ public class HeroesGenerator : MonoBehaviour
         {
             hero.AddComponent<Rigidbody2D>();
             hero.GetComponent<Rigidbody2D>().gravityScale = 0;
-            hero.GetComponent<SpriteRenderer>().sortingOrder = 1;
+            hero.GetComponent<SpriteRenderer>().sortingOrder = 2;
             hero.tag = "Hero";
         }
 
