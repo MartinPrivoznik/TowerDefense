@@ -27,6 +27,8 @@ namespace Assets.Scripts.Heroes.Abstract
         private Transform _transform;
         private Rigidbody2D _rigidbody;
         private Camera _turret;
+        private AppModel _appModel;
+        private PlayerControlModel _playerControlModel;
         
 
         public void StartDefault(float _ad, 
@@ -48,6 +50,8 @@ namespace Assets.Scripts.Heroes.Abstract
             _rigidbody = GetComponent<Rigidbody2D>();
             _rigidbody.velocity = Vector2.left * MS; //Make it moving left
             _turret = Camera.main;
+            _playerControlModel = _turret.GetComponent<PlayerControlModel>();
+            _appModel = _turret.GetComponent<AppModel>();
 
         }
 
@@ -87,12 +91,12 @@ namespace Assets.Scripts.Heroes.Abstract
         {
             if (collider.gameObject.CompareTag("Bullet"))
             {
-                HP -= _turret.GetComponent<PlayerControlModel>().BulletDamage;
+                HP -= _playerControlModel.BulletDamage;
                 //scoreText.text = _score.ToString();
                 Destroy(collider.gameObject);
                 if (HP <= 0)
                 {
-                    _turret.GetComponent<AppModel>().Actual_Money += WorthOf;
+                    _appModel.Actual_Money += WorthOf;
                     Destroy(gameObject);
                 }
             } 
@@ -101,9 +105,23 @@ namespace Assets.Scripts.Heroes.Abstract
         void Attacc()
         {
             var script = _turret.GetComponent<PlayerControlModel>();
-            if (script.TurretActualHP > 0)
+            if (AD > 0)
             {
-                script.TurretActualHP -= AD;
+                if (script.TurretActualHP > 0)
+                {
+                    script.TurretActualHP -= AD;
+                }
+            }
+            else
+            {
+                if ((script.TurretActualHP - AD) > script.TurretMaxHP)
+                {
+                    script.TurretActualHP = script.TurretMaxHP;
+                }
+                else
+                {
+                    script.TurretActualHP -= AD;
+                }
             }
         }
 

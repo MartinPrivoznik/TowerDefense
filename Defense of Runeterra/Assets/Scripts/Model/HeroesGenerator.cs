@@ -55,10 +55,9 @@ public class HeroesGenerator : MonoBehaviour
         {
             GameObject hero = Instantiate(Heroes[index.Next(0, Heroes.Count)]) as GameObject;    //Instantiating a new random enemy
             hero.transform.parent = _heroesEmpty.transform;
-            hero.transform.position = new Vector2(6.5f, UnityEngine.Random.Range(-1.5f, 1.2f));
+            hero.transform.position = new Vector2(6.5f, UnityEngine.Random.Range(-1.3f, 1.5f));
 
             heroInit(hero);
-
         }
         catch(Exception e)
         {
@@ -70,10 +69,9 @@ public class HeroesGenerator : MonoBehaviour
     {
         try
         {
-
             GameObject hero = Instantiate(_hero) as GameObject;    //Instantiating a new random enemy
             hero.transform.parent = _heroesEmpty.transform;
-            hero.transform.position = new Vector2(6.5f, UnityEngine.Random.Range(-1.5f, 1.2f));
+            hero.transform.position = new Vector2(6.5f, UnityEngine.Random.Range(-1.3f, 1.5f));
 
             heroInit(hero);
         }

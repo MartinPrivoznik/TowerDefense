@@ -9,16 +9,15 @@ public class GameHandler : MonoBehaviour {
     
     private float MaxHP;
     private float ActualHP;
-    float onePercent;
-    float health;
-    float HealthNow;
-    float dmg;
+    private float health;
+    private PlayerControlModel _playerControlModel;
 
     void Start()
     {
         health = 1f;
         _HP = Camera.main;
-       
+        _playerControlModel = _HP.GetComponent<PlayerControlModel>();
+
         healthBar.SetSize(health);
         healthBar.SetColor(Color.red);
     }
@@ -28,8 +27,8 @@ public class GameHandler : MonoBehaviour {
     void Update()   
     {
         
-        ActualHP = _HP.GetComponent<PlayerControlModel>().TurretActualHP;
-        MaxHP = _HP.GetComponent<PlayerControlModel>().TurretMaxHP;
+        ActualHP = _playerControlModel.TurretActualHP;
+        MaxHP = _playerControlModel.TurretMaxHP;
         if (ActualHP >= 0)
         {
             health = (ActualHP / (MaxHP / 100)) / 100;
@@ -37,8 +36,8 @@ public class GameHandler : MonoBehaviour {
         }
         else
         {
-            if (_HP.GetComponent<PlayerControlModel>().ShootCooldown != -1)
-                _HP.GetComponent<PlayerControlModel>().ShootCooldown = -1;
+            if (_playerControlModel.ShootCooldown != -1)
+                _playerControlModel.ShootCooldown = -1;
         }
         
         

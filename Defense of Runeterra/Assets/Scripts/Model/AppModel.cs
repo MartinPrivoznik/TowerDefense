@@ -19,13 +19,16 @@ public class AppModel : MonoBehaviour
     private float _turretHP;
     private float _turretMaxHP;
     private float _actualMoney;
+    private PlayerControlModel _playerControlModel;
+    private HeroesGenerator _heroesGenerator;
 
     // Start is called before the first frame update
     void Start()
     {
         _turret = Camera.main;
-        _turretHP = _turret.GetComponent<PlayerControlModel>().TurretActualHP;
-        _turretMaxHP = _turret.GetComponent<PlayerControlModel>().TurretMaxHP;
+        _playerControlModel = _turret.GetComponent<PlayerControlModel>();
+        _turretHP = _playerControlModel.TurretActualHP;
+        _turretMaxHP = _playerControlModel.TurretMaxHP;
 
         HPText.text = $"{_turretHP}/{_turretMaxHP}";
 
@@ -41,23 +44,23 @@ public class AppModel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_turret.GetComponent<PlayerControlModel>().TurretActualHP <= 0 && Explosion.activeSelf == false)
+        if (_playerControlModel.TurretActualHP <= 0 && Explosion.activeSelf == false)
         { //Check defeat
-            _turret.GetComponent<HeroesGenerator>().SpawningPeriod = -1; //Disable spawning
+            _heroesGenerator.SpawningPeriod = -1; //Disable spawning
 
             Explosion.SetActive(true);
             Defeat.SetActive(true);
         }
-        if (_turretHP != _turret.GetComponent<PlayerControlModel>().TurretActualHP)
+        if (_turretHP != _playerControlModel.TurretActualHP)
         { //Check current HP
-            _turretHP = _turret.GetComponent<PlayerControlModel>().TurretActualHP;
+            _turretHP = _playerControlModel.TurretActualHP;
             var hp = _turretHP;
             HPText.text = $"{hp}/{_turretMaxHP}";
         }
-        if (_turretMaxHP != _turret.GetComponent<PlayerControlModel>().TurretMaxHP)
+        if (_turretMaxHP != _playerControlModel.TurretMaxHP)
         { //Check max HP
-            _turretMaxHP = _turret.GetComponent<PlayerControlModel>().TurretMaxHP;
-            var hp = _turret.GetComponent<PlayerControlModel>().TurretMaxHP;
+            _turretMaxHP = _playerControlModel.TurretMaxHP;
+            var hp = _playerControlModel.TurretMaxHP;
             HPText.text = $"{_turretHP}/{hp}";
         }
         if(_actualMoney != Actual_Money)

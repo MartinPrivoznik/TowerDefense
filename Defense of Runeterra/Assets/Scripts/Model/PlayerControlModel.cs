@@ -17,6 +17,7 @@ public class PlayerControlModel : MonoBehaviour
     private Vector3 _target;
     private float _shooting_cd;
     private Vector2 _turret_position;
+    private Camera _camera;
 
     private float _destroy_time = 2.0f;
 
@@ -25,7 +26,8 @@ public class PlayerControlModel : MonoBehaviour
     {
         Cursor.visible = false;
         _shooting_cd = Time.time + ShootCooldown;
-        _turret_position = new Vector2(-5.8f, 1.8f);
+        _turret_position = new Vector2(-4.9f, 1.9f);
+        _camera = transform.GetComponent<Camera>();
     }
 
     // Update is called once per frame
@@ -36,7 +38,7 @@ public class PlayerControlModel : MonoBehaviour
 
     private void check_crosshair()
     {
-        _target = transform.GetComponent<Camera>()
+        _target = _camera
                .ScreenToWorldPoint(new Vector3(
                    Input.mousePosition.x,
                    Input.mousePosition.y,
