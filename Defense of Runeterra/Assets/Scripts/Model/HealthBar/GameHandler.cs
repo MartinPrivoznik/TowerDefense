@@ -18,13 +18,9 @@ public class GameHandler : MonoBehaviour {
     {
         health = 1f;
         _HP = Camera.main;
-        MaxHP = _HP.GetComponent<PlayerControlModel>().TurretMaxHP;
        
         healthBar.SetSize(health);
         healthBar.SetColor(Color.red);
-        
-        
-        
     }
     
  
@@ -33,6 +29,7 @@ public class GameHandler : MonoBehaviour {
     {
         
         ActualHP = _HP.GetComponent<PlayerControlModel>().TurretActualHP;
+        MaxHP = _HP.GetComponent<PlayerControlModel>().TurretMaxHP;
         if (ActualHP >= 0)
         {
             health = (ActualHP / (MaxHP / 100)) / 100;

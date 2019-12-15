@@ -93,25 +93,25 @@ public class HeroesGenerator : MonoBehaviour
         switch (name)
         {
             case "Nocturne":
-                hero.AddComponent<Hero>().StartDefault(10, 2, 2, 2, false);
+                hero.AddComponent<Hero>().StartDefault(10, 2, 2, 2, false, 10);
                 break;
             case "Ashe":
-                hero.AddComponent<Hero>().StartDefault(10, 2, 3, 1, true);
+                hero.AddComponent<Hero>().StartDefault(10, 2, 3, 1, true, 10);
                 break;
             case "Karthus":
-                hero.AddComponent<Hero>().StartDefault(8, 5, 2, 1, true);
+                hero.AddComponent<Hero>().StartDefault(8, 5, 2, 1, true, 10);
                 break;
             case "Taric":
-                hero.AddComponent<Hero>().StartDefault(-1, 12, 3, 0.5f, false);
+                hero.AddComponent<Hero>().StartDefault(-1, 12, 3, 0.5f, false, 10);
                 break;
             case "Teemo":
-                hero.AddComponent<Hero>().StartDefault(6, 6, 6, 0.7f, true); //Easter-EGG
+                hero.AddComponent<Hero>().StartDefault(6, 6, 6, 0.7f, true, 10); //Easter-EGG
                 break;
             case "Cho":
-                hero.AddComponent<Hero>().StartDefault(4, 8, 2, 1, false);
+                hero.AddComponent<Hero>().StartDefault(4, 8, 2, 1, false, 10);
                 break;
             case "Alistar":
-                hero.AddComponent<Hero>().StartDefault(4, 5, 1.4f, 1.3f, false);
+                hero.AddComponent<Hero>().StartDefault(4, 5, 1.4f, 1.3f, false, 10);
                 break;
         }
     }

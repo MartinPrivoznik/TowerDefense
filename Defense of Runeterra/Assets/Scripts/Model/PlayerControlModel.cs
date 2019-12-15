@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerControlModel : MonoBehaviour
 {
@@ -52,6 +53,10 @@ public class PlayerControlModel : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && Time.time > _shooting_cd && ShootCooldown != -1)
         {
+
+            if (EventSystem.current.IsPointerOverGameObject())
+                return; //Preventing from continuing if button is pressed
+
             float distance = difference.magnitude;
             Vector2 direction = difference / distance;
             direction.Normalize(); //Setting magnitude to 1
