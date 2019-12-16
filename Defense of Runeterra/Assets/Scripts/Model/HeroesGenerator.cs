@@ -8,7 +8,7 @@ public class HeroesGenerator : MonoBehaviour
 {
 
     public List<GameObject> Heroes;
-    public float SpawningPeriod = 5.0f;
+    public float SpawningPeriod;
 
     private GameObject _heroesEmpty;
     private System.Random index;
@@ -29,7 +29,7 @@ public class HeroesGenerator : MonoBehaviour
 
         index = new System.Random();
 
-        _spawningPeriod = SpawningPeriod;
+        _spawningPeriod = -1f;
     }
 
     // Update is called once per frame
@@ -43,8 +43,9 @@ public class HeroesGenerator : MonoBehaviour
                 InvokeRepeating(nameof(generateNewRandomHero), 1.5f, _spawningPeriod);
         }
 
-        if (!IsInvoking(nameof(generateNewRandomHero)) && _spawningPeriod != -1)
+        if (!IsInvoking(nameof(generateNewRandomHero)) && _spawningPeriod != -1f)
         {
+            _spawningPeriod = SpawningPeriod;
             InvokeRepeating(nameof(generateNewRandomHero), 1.5f, _spawningPeriod);
         }
     }
