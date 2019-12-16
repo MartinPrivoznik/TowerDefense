@@ -2,14 +2,14 @@
 
 <img src="LegendsOfRuneterra.png" >
 
-Tower defense zasažený do světa Runeterra
-## Cíle
-1. Hráč ovládá kurzorem věž
-2. Periodicky běhají nepřátelé směrem k základně, které musí hráč pomocí kurzoru zabít
-3. Nepřátelé budou silnější a silnější a hráč si může základnu a věž vylepšovat pomocí peněz získané overtime / za zabití nepřátel
-4. Vytvořené struktury
-5. Quick-time event (bonus levely a následné bonusy při splnění)
-6. Možnost přikoupení speciálních dodatků k věži
-### Dodatky
-1. Zvukové efekty - Namluvené
-2. Grafické efekty
+Simple tower defense game in world of Runeterra
+## Goals
+1. Player controls the tower with mouse
+2. Enemies periodically running towards the tower who has to be killed by player
+3. Stronger and stronger enemies, player can evolve turret with money recieved by killing enemies
+4. Handmade structures
+5. Quick-time events
+6. Special aditions to tower
+### Bonuses
+1. Own sound effects
+2. Graphic effects
